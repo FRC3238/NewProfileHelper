@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+//import ProfileGenerator.ConstantsMP;
 import jaci.pathfinder.*;
 import jaci.pathfinder.modifiers.TankModifier;
 
@@ -54,8 +55,19 @@ public class AutoDriveMotionProfileHelper {
         
         return result;      
     }
-    
-    
+    public static Trajectory getStraightTrajectory(double dt, double maxVel, double maxAccel, double maxJerk, double distance) {
+        Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, dt, maxVel, maxAccel, maxJerk);
+        Trajectory trajectory = Pathfinder.generate(getWaypointsDistance(distance), config);
+
+        return trajectory;
+    }
+    public static Waypoint[] getWaypointsDistance(double distance) {
+        Waypoint[] result = new Waypoint[2];
+        result[0] = new Waypoint(0,0,Math.PI/2);
+        //result[1] = new Waypoint(0, distance - (ConstantsMP.kRobotLengthWithBumpers), Math.PI/2);
+        result[1] = new Waypoint(0, distance, Math.PI/2);
+        return result;
+    }
     public static Trajectory GetTrajectoryBoilerCornerToSideLift(double timestepInSECONDS, double maxSpeed, double maxAccel, double maxJerk)
     {
         //returns single trajectory of the center of geometry
