@@ -13,9 +13,7 @@ public class Main {
 
         initWaypointCalculator();
 
-
-        Trajectory customTrajectory = WaypointCalculator.getTrajectory(WaypointCalculator.customProfile());
-        MotionPacker.Utilities.outputToJavaFile("Custom", customTrajectory);
+        createProfileFile(WaypointCalculator.getWaypointsSideWallToCenterLift(), "sideLyft");
 
         System.out.println("done");
     }
@@ -24,5 +22,10 @@ public class Main {
         Trajectory.Config activeConfig = MotionPacker.Utilities.protoBot;
         RobotDimensions activeRobot = MotionPacker.Utilities.protoBotDim;
         WaypointCalculator.init(activeRobot, activeConfig);
+    }
+    public static void createProfileFile(Waypoint[] points, String name) throws java.io.FileNotFoundException{
+        Trajectory customTrajectory = WaypointCalculator.getTrajectory(points);
+        MotionPacker.Utilities.outputToJavaFile(name, customTrajectory);
+
     }
 }
