@@ -17,7 +17,7 @@ public class WaypointCalculator {
     public static Waypoint[] getWaypointsSideWallToCenterLift() {
         Waypoint[] result = new Waypoint[2];
         result[0] = new Waypoint(0,0,Math.PI/2);
-        result[1] = new Waypoint(0, ProfilingConstants.kDriverWallToCenterLift - (ProfilingConstants.kRobotLengthWithBumpers/2) - ProfilingConstants.kFrontOfGearToRobotCenter , Math.PI/2);
+        result[1] = new Waypoint(0, ProfilingConstants.kDriverWallToCenterLift - (activeDimensions.getRobotLengthWithBumpers()/2) - activeDimensions.getFrontOfGearToRobotCenter() , Math.PI/2);
         return result;
     }
     public static Waypoint[] GetWaypointsBoilerCornerToSideLift()
@@ -31,12 +31,12 @@ public class WaypointCalculator {
 
         //ending point with gear on lift
         double x_final = ProfilingConstants.kDriverWallToSideLift
-                - ProfilingConstants.kFrontOfGearToRobotCenter * Math.cos(Math.toRadians(60))
-                - ProfilingConstants.kRobotLengthWithBumpers/2;
+                - activeDimensions.getFrontOfGearToRobotCenter() * Math.cos(Math.toRadians(60))
+                - activeDimensions.getRobotLengthWithBumpers()/2;
 
         double y_final = ProfilingConstants.kSideWallToBoilerSideLift
-                - ProfilingConstants.kFrontOfGearToRobotCenter * Math.sin(Math.toRadians(60))
-                - ProfilingConstants.kRobotWidthWithBumpers/2;
+                - activeDimensions.getFrontOfGearToRobotCenter() * Math.sin(Math.toRadians(60))
+                - activeDimensions.getRobotWidthWithBumpers()/2;
         
         result[2] = new Waypoint(x_final, y_final, Math.toRadians(60)); 
 

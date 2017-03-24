@@ -17,4 +17,29 @@ public class RobotDimensions {
         this.robotLengthWithBumpers = robotLengthWithBumpers;
         this.robotWidthWithBumpers = robotWidthWithBumpers;
     }
+
+    public double getFrontOfGearToRobotCenter() {
+        return frontOfGearToRobotCenter;
+    }
+
+    public double getRobotLengthWithBumpers() {
+        return robotLengthWithBumpers;
+    }
+
+    public double getRobotWidthWithBumpers() {
+        return robotWidthWithBumpers;
+    }
+
+    public double getWheelbaseLength() {
+        return wheelbaseLength;
+    }
+
+    public double getWheelbaseWidth() {
+        return wheelbaseWidth;
+    }
+
+    public double getWheelDiameter() {
+        return WheelDiameter;
+    }
+
 }
