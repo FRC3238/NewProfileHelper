@@ -14,6 +14,25 @@ public class WaypointCalculator {
         activeDimensions = activeDim;
         activeParameters = activeParams;
     }
+    public static Waypoint[] getWaypointsHopperPerpendicular() { //startpoint is inner edge boiler tape
+        Waypoint[] fwdMove = new Waypoint[2];
+        fwdMove[0] = ProfilingConstants.startPoint;
+        fwdMove[1] = new Waypoint(0,ProfilingConstants.kHopperForwardFirst-activeDimensions.getRobotLengthWithBumpers(), Math.toRadians(90));
+        return fwdMove;
+    }
+    public static Waypoint[] getWaypointsHitHopper() {
+        Waypoint[] fwdMove = new Waypoint[2];
+        fwdMove[0] = ProfilingConstants.startPoint;
+        fwdMove[1] = new Waypoint(0,ProfilingConstants.kHopperForwardHit-(activeDimensions.getRobotWidthWithBumpers()-activeDimensions.getRobotLengthWithBumpers())/2-activeDimensions.getRobotLengthWithBumpers()+3, Math.toRadians(90));
+        return fwdMove;
+    }
+    public static Waypoint[] getWaypointsForTurn(double angle) {
+        double angleToStraight = (Math.PI*activeDimensions.getWheelbaseWidth())/(angle/360);
+        Waypoint[] turn = new Waypoint[2];
+        turn[0] = ProfilingConstants.startPoint;
+        turn[1] = new Waypoint(0, angleToStraight, Math.toRadians(90));
+        return turn;
+    }
     public static Waypoint[] getWaypointsSideWallToCenterLift() {
         Waypoint[] result = new Waypoint[2];
         result[0] = new Waypoint(0,0,Math.PI/2);
@@ -61,7 +80,6 @@ public class WaypointCalculator {
     public static Waypoint[] getWaypointsDistance(double distance) {
         Waypoint[] result = new Waypoint[2];
         result[0] = new Waypoint(0,0,Math.PI/2);
-        //result[1] = new Waypoint(0, distance - (MotionPacker.ProfilingConstants.kRobotLengthWithBumpers), Math.PI/2);
         result[1] = new Waypoint(0, distance, Math.PI/2);
         return result;
     }

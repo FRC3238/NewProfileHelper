@@ -1,5 +1,7 @@
 package MotionPacker;
 
+import jaci.pathfinder.Waypoint;
+
 public class ProfilingConstants {
     //Robot geometry constants
     public static final double kWheelbaseWidth =( 0.61595*(1/0.0254)); //meters
@@ -38,6 +40,9 @@ public class ProfilingConstants {
     public static final double kFirstForwardMove = kDriverWallToSideLift-(kStartPointToBot-kRobotWidthWithBumpers/2)*Math.tan(Math.toRadians(30))-kRobotLengthWithBumpers/2;
     public static final double kSecondForwardMove = (kStartPointToBot-kRobotWidthWithBumpers/2)/Math.cos(Math.toRadians(30))-kRobotLengthWithBumpers/2+kFrontOfGearToRobotCenter;
 
+    public static final Waypoint startPoint = new Waypoint(0,0,Math.toRadians(90));
+    public static final double kHopperForwardFirst = 112,
+                                kHopperForwardHit = 116;
     public class Utilities {
 
         public static final double maxVel = 30,
