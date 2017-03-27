@@ -63,7 +63,10 @@ public class Utilities {
 
         leftWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic static class " + profileName + "LEFT {\n"+header+"\npublic static double[][] Points = new double[][]{");
         rightWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic static class " + profileName + "RIGHT {\n" + header + "\npublic static double[][] Points = new double[][]{");
-
+        System.out.println(""+leftTraj.segments[0].dt);
+        System.out.println(""+leftTraj.length());
+        leftWriter.append("\n\n//Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
+        rightWriter.append("\n\n//Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
         header = "/**/";
         double wheelbaseDiameter = WaypointCalculator.activeDimensions.getWheelDiameter();
         for(int i = 0; i < leftTraj.length(); i++) {

@@ -7,11 +7,11 @@ public class Main {
 
         initWaypointCalculator();
 
-        createProfileFile(WaypointCalculator.getWaypointsSideWallToCenterLift(), "sideLyft");
+//        createProfileFile(WaypointCalculator.getWaypointsSideWallToCenterLift(), "sideLyft");
         createProfileFile(WaypointCalculator.getWaypointsHopperPerpendicular(), "hopperPerp");
         createProfileFile(WaypointCalculator.getWaypointsForTurn(90), "hopperTurn", Utilities.INVERTLEFT);
         createProfileFile(WaypointCalculator.getWaypointsHitHopper(), "hopperHit");
-        createProfileFile(WaypointCalculator.getWaypointsDistance(36), "hopperHitBack", Utilities.INVERTBOTH);
+        createProfileFile(WaypointCalculator.getWaypointsDistance(18), "hopperHitBack", Utilities.INVERTBOTH);
 
         createProfileFile(WaypointCalculator.getWaypointsForTurn(138), "hopperShootTurn", Utilities.INVERTRIGHT);
         System.out.println("done");

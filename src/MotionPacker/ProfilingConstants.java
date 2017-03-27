@@ -42,7 +42,7 @@ public class ProfilingConstants {
 
     public static final Waypoint startPoint = new Waypoint(0,0,Math.toRadians(90));
     public static final double kHopperForwardFirst = 112,
-                                kHopperForwardHit = 116;
+                                kHopperForwardHit = 116; //
     public class Utilities {
 
         public static final double maxVel = 30,
@@ -53,9 +53,9 @@ public class ProfilingConstants {
                 compMaxAccel = 30,
                 compMaxJerk = 600,
                 compDt = 0.01;
-        public static final double protoMaxVel = 30,
-               protoMaxAccel = 30,
-               protoMaxJerk = 600,
+        public static final double protoMaxVel = 60,
+               protoMaxAccel = 60,
+               protoMaxJerk = 1200,
                protoDt = 0.01;
         public static final double compFastmaxVel = 30,
                 compFastMaxAccel = 30,
