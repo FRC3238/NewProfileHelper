@@ -8,9 +8,10 @@ public class Main {
         initWaypointCalculator();
 
 //        createProfileFile(WaypointCalculator.getWaypointsSideWallToCenterLift(), "sideLyft");
-        createProfileFile(WaypointCalculator.getWaypointsHopperPerpendicular(), "hopperPerp");
-        createProfileFile(WaypointCalculator.getWaypointsForTurn(90), "hopperTurn", Utilities.INVERTLEFT);
-        createProfileFile(WaypointCalculator.getWaypointsHitHopper(), "hopperHit");
+        createProfileFile(WaypointCalculator.getWaypointsCurvedHit(), "curveHit");
+//        createProfileFile(WaypointCalculator.getWaypointsHopperPerpendicular(), "hopperPerp");
+//        createProfileFile(WaypointCalculator.getWaypointsForTurn(90), "hopperTurn", Utilities.INVERTLEFT);
+//        createProfileFile(WaypointCalculator.getWaypointsHitHopper(), "hopperHit");
         createProfileFile(WaypointCalculator.getWaypointsDistance(18), "hopperHitBack", Utilities.INVERTBOTH);
 
         createProfileFile(WaypointCalculator.getWaypointsForTurn(138), "hopperShootTurn", Utilities.INVERTRIGHT);

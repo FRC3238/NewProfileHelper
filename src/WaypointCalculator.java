@@ -26,6 +26,12 @@ public class WaypointCalculator {
         fwdMove[1] = new Waypoint(0,ProfilingConstants.kHopperForwardHit-(activeDimensions.getRobotWidthWithBumpers()-activeDimensions.getRobotLengthWithBumpers())/2-activeDimensions.getRobotLengthWithBumpers()+3-79.3+activeDimensions.getRobotWidthWithBumpers(), Math.toRadians(90));
         return fwdMove;
     }
+    public static Waypoint[] getWaypointsCurvedHit() {
+        Waypoint[] turn = new Waypoint[2];
+        turn[0] = ProfilingConstants.startPoint;
+        turn[1] = new Waypoint(ProfilingConstants.kHopperForwardHit-(activeDimensions.getRobotWidthWithBumpers()-activeDimensions.getRobotLengthWithBumpers())/2-activeDimensions.getRobotLengthWithBumpers()+3+activeDimensions.getRobotWidthWithBumpers(), ProfilingConstants.kHopperForwardFirst-activeDimensions.getRobotLengthWithBumpers(), Math.toRadians(180));
+        return turn;
+    }
     public static Waypoint[] getWaypointsForTurn(double angle) {
         double angleToStraight = (Math.PI*activeDimensions.getWheelbaseWidth())/(360/angle);
         Waypoint[] turn = new Waypoint[2];
