@@ -61,43 +61,43 @@ public class Utilities {
         mod.modify(WaypointCalculator.activeDimensions.getWheelbaseWidth());
         Trajectory leftTraj = mod.getLeftTrajectory(), rightTraj = mod.getRightTrajectory();
 
-        leftWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic static class " + profileName + "LEFT {\n"+header+"\npublic static double[][] Points = new double[][]{");
-        rightWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic static class " + profileName + "RIGHT {\n" + header + "\npublic static double[][] Points = new double[][]{");
+        leftWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic class " + profileName + "LEFT {\n"+header+"\n    public static double[][] Points = new double[][]{");
+        rightWriter.append("package " + ProfilingConstants.Utilities.packageName + ";\npublic class " + profileName + "RIGHT {\n" + header + "\n    public static double[][] Points = new double[][]{");
         System.out.println(""+leftTraj.segments[0].dt);
         System.out.println(""+leftTraj.length());
-        leftWriter.append("\n\n//Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
-        rightWriter.append("\n\n//Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
+        leftWriter.append("\n\n        //Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
+        rightWriter.append("\n\n        //Time: " + leftTraj.segments[0].dt*leftTraj.length()+"\n");
         header = "/**/";
         double wheelbaseDiameter = WaypointCalculator.activeDimensions.getWheelDiameter();
         for(int i = 0; i < leftTraj.length(); i++) {
 
-            leftWriter.append("{"+((leftTraj.segments[i].position*leftMult) / (Math.PI * wheelbaseDiameter)) + ", " +
+            leftWriter.append("        {"+((leftTraj.segments[i].position*leftMult) / (Math.PI * wheelbaseDiameter)) + ", " +
 
                     ((leftTraj.segments[i].velocity * 60 *leftMult) / (Math.PI * wheelbaseDiameter)) + ", " +
 
-                    (leftTraj.segments[i].dt * 1000)+ "} ");
+                    (leftTraj.segments[i].dt * 1000)+ "}");
 
-            rightWriter.append("{"+((rightTraj.segments[i].position*rightMult) / (Math.PI * wheelbaseDiameter)) + ", " +
+            rightWriter.append("        {"+((rightTraj.segments[i].position*rightMult) / (Math.PI * wheelbaseDiameter)) + ", " +
 
                     ((rightTraj.segments[i].velocity * 60*rightMult) / (Math.PI * wheelbaseDiameter)) + ", " +
 
-                    (rightTraj.segments[i].dt * 1000)+ "} ");
+                    (rightTraj.segments[i].dt * 1000)+ "}");
 
             if(i!=leftTraj.length()-1)
 
             {
 
-                leftWriter.append(",");
+                leftWriter.append(",\n");
 
-                rightWriter.append(",");
+                rightWriter.append(",\n");
 
             }
 
             else {
 
-                leftWriter.append("};\n}");
+                leftWriter.append("\n    };\n}");
 
-                rightWriter.append("};\n}");
+                rightWriter.append("\n    };\n}");
 
             }
 
